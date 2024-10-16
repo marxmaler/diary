@@ -1,0 +1,9 @@
+extend base.pug
+
+block bodyBlock
+    form(action="", method="post")
+        div 
+            input(type="text", name="title", placeholder="제목", value=`${diary.title }`)
+        div
+            textarea(name="content", cols="40", rows="20", placeholder="내용", style="resize:none")=diary.content
+        button(type="submit") 저장

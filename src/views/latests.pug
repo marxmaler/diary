@@ -5,6 +5,8 @@ block bodyBlock
         each diary in diaries
             li
                 h1=diary.title
+                    span 
+                        a(href=`/diaries/edit/${diary.id}`, style="text-decoration:none")  📝
                 p=diary.createdAt
                 div
                     span=diary.content

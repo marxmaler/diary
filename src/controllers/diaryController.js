@@ -17,3 +17,15 @@ export const postWriteDiary = async (req, res) => {
 
   return res.redirect("/");
 };
+
+export const getEditDiary = async (req, res) => {
+  const { id } = req.params;
+  const diary = await Diary.findById(id);
+
+  console.log(diary);
+  return res.render("edit", { title: "Edit your diary", diary });
+};
+
+export const postEditDiary = (req, res) => {
+  return res.redirect("/");
+};
