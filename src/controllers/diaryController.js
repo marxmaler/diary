@@ -10,6 +10,7 @@ export const getWriteDiary = (req, res) => {
 };
 
 export const postWriteDiary = async (req, res) => {
+  //나중에 빈 문자열 들어오면 아예 수정 안되게 막기
   const { title, content } = req.body;
 
   const newEntry = await Diary.create({ title, content });
@@ -26,6 +27,18 @@ export const getEditDiary = async (req, res) => {
   return res.render("edit", { title: "Edit your diary", diary });
 };
 
-export const postEditDiary = (req, res) => {
+export const postEditDiary = async (req, res) => {
+  //나중에 빈 문자열 들어오면 아예 수정 안되게 막기
+  const { id } = req.params;
+  const { title, content } = req.body;
+  const diary = await Diary.findByIdAndUpdate(id, {
+    title,
+    content,
+  });
+
+  console.log(diary);
   return res.redirect("/");
 };
+
+export const getDeleteDiary = (req, res) => {};
+export const postDeleteDiary = (req, res) => {};

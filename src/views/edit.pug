@@ -6,4 +6,5 @@ block bodyBlock
             input(type="text", name="title", placeholder="제목", value=`${diary.title }`)
         div
             textarea(name="content", cols="40", rows="20", placeholder="내용", style="resize:none")=diary.content
-        button(type="submit") 저장
+        button(type="submit", style="margin-right:1em") 저장
+        button(type="submit") 삭제
